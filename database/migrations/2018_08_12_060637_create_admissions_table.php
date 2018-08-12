@@ -15,6 +15,20 @@ class CreateAdmissionsTable extends Migration
     {
         Schema::create('admissions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('age');
+            $table->date('birthdate');
+            $table->date('admission_date');
+            $table->string('guardian_name');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('previous_school');
+            $table->integer('class_id');
+            $table->integer('document_id');
+            $table->string('code');
+            $table->enum('status',['open','processing','completed']);
+            $table->string('note')->nullable();
+            $table->integer('organisation_id');
             $table->timestamps();
         });
     }

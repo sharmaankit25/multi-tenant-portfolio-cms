@@ -15,6 +15,11 @@ class CreateAchieversTable extends Migration
     {
         Schema::create('achievers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('class_id');
+            $table->integer('event_id');
+            $table->string('position');
+            $table->integer('organisation_id');
             $table->timestamps();
         });
     }

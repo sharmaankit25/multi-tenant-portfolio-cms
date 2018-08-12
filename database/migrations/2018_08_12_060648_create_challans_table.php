@@ -15,6 +15,12 @@ class CreateChallansTable extends Migration
     {
         Schema::create('challans', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('admission_id');
+            $table->string('code');
+            $table->integer('amount');
+            $table->enum('status',['pending','completed']);
+            $table->string('note')->nullable();
+            $table->integer('organisation_id');
             $table->timestamps();
         });
     }

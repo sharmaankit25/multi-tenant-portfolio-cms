@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedbackTable extends Migration
+class CreatePhotoableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateFeedbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('question');
-            $table->string('description')->nullable();
-            $table->integer('organisation_id');
-            $table->timestamps();
+        Schema::create('photoable', function (Blueprint $table) {
+            $table->integer('photo_id');
+            $table->integer('photoable_id');
+            $table->string('photoable_type');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateFeedbackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('photoable');
     }
 }
