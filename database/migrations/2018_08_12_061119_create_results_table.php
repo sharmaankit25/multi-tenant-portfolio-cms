@@ -18,6 +18,7 @@ class CreateResultsTable extends Migration
             $table->string('session');
             $table->string("semester");
             $table->string("type");
+            $table->integer('standard_id');
             $table->integer('organisation_id');
             $table->timestamps();
         });

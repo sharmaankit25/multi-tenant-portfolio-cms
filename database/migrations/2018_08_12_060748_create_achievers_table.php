@@ -17,7 +17,7 @@ class CreateAchieversTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->integer('class_id');
+            $table->integer('standard_id');
             $table->integer('event_id');
             $table->string('position');
             $table->integer('organisation_id');

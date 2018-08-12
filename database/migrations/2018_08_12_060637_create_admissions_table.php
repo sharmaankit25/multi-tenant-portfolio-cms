@@ -28,7 +28,7 @@ class CreateAdmissionsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('previous_school');
-            $table->integer('class_id');
+            $table->integer('standard_id');
             $table->integer('document_id');
             $table->string('code');
             $table->enum('status',['open','processing','completed']);
