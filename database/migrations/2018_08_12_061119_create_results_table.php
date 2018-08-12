@@ -15,6 +15,10 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('session');
+            $table->string("semester");
+            $table->string("type");
+            $table->integer('organisation_id');
             $table->timestamps();
         });
     }

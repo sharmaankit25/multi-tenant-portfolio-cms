@@ -13,4 +13,12 @@ class Photo extends Model
     {
         return $this->morphedByMany('App\Album', 'photoable');
     }
+
+        /**
+     * Get all of the posts that are assigned this tag.
+     */
+    public function sliders()
+    {
+        return $this->morphedByMany('App\Slider', 'photoable');
+    }
 }
