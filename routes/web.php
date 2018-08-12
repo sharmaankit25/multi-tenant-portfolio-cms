@@ -49,6 +49,6 @@ Route::group(['middleware' => 'auth','prefix'=>'manage'], function () {
         'staffs'    =>  'StaffController',
         'staff_types'   =>  'StaffTypeController',
         'standards' =>  'StandardController',
-        'user'     => 'UserController'
+        'users'     => 'UserController'
     ]);
 });
