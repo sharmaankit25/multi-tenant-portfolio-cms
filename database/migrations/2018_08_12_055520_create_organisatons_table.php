@@ -19,6 +19,12 @@ class CreateOrganisatonsTable extends Migration
             $table->text('description')->nullable();
             $table->string('address');
             $table->string('phone');
+            $table->string('email');
+            $table->string('lat_long');
+            $table->string('url');
+            $table->string('social_networks');
+            $table->string('theme');
+            $table->date('renewal_date');
             $table->timestamps();
         });
     }

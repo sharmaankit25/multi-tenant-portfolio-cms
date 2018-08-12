@@ -18,8 +18,13 @@ class CreateAdmissionsTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->date('birthdate');
+            $table->string('session');
+            $table->string('type');
             $table->date('admission_date');
-            $table->string('guardian_name');
+            $table->string('fathers_name');
+            $table->string('mothers_name');
+            $table->string('city');
+            $table->string('address');
             $table->string('phone');
             $table->string('email');
             $table->string('previous_school');

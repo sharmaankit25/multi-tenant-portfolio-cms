@@ -19,6 +19,8 @@ class CreateApplicationsTable extends Migration
             $table->string('qualification');
             $table->string('experience');
             $table->integer('age');
+            $table->string('phone');
+            $table->string('email');
             $table->string('code');
             $table->string('document_id');
             $table->enum('status',['open','rejected','accepted','selected']);

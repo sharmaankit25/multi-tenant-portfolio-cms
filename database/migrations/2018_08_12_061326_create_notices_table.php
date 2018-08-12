@@ -17,7 +17,9 @@ class CreateNoticesTable extends Migration
             $table->increments('id');
             $table->string("title");
             $table->text("description");
+            $table->enum('type',['notice','news'])->default('notice');
             $table->integer("organisation_id");
+            $table->date('published_at');
             $table->date('deleted_at');
             $table->timestamps();
         });

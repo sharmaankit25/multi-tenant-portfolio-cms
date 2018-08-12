@@ -17,6 +17,7 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('post');
+            $table->string('qualification');
             $table->integer('vacancy')->default(1);
             $table->integer('vacant')->nullable();
             $table->text('description');
