@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ACLSeeder::class);
+        $this->call([
+            ACLSeeder::class,
+            StandardSeeder::class
+        ]);
     }
 }

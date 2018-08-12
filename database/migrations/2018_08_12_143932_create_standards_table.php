@@ -16,7 +16,7 @@ class CreateStandardsTable extends Migration
         Schema::create('standards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('display_name');
+            $table->string('display_name')->nullable();
         });
     }
 
