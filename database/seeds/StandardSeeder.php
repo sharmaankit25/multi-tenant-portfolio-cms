@@ -21,7 +21,7 @@ class StandardSeeder extends Seeder
             'display_name'=>'UKG'
         ]);
         
-        for($i = 1;i <= 12; $i++){
+        for($i = 1;$i <= 12; $i++){
             \App\Standard::create([
                 'name'=>$this->ordinal($i),
                 'display_name'=>$this->ordinal($i).' Class'

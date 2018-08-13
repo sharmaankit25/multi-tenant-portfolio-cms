@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->integer('organisation_id');
+            $table->boolean('active')->default(0);
+            $table->integer('organisation_id')->default(0);
             $table->timestamps();
         });
     }
