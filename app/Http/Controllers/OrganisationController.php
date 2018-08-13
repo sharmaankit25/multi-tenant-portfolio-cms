@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Organisaton;
+use App\Organisation;
 use Illuminate\Http\Request;
 
-class OrganisatonController extends Controller
+class OrganisationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,10 @@ class OrganisatonController extends Controller
      */
     public function index()
     {
-        //
+       // $this->authorize('view',Organisation::class);
+       $organisations = Organisation::all();
+       return view('pages.manage.organisations.index',compact('organisations'));
+
     }
 
     /**
@@ -25,6 +28,7 @@ class OrganisatonController extends Controller
     public function create()
     {
         //
+        return view('pages.manage.organisations.create');
     }
 
     /**
@@ -36,6 +40,7 @@ class OrganisatonController extends Controller
     public function store(Request $request)
     {
         //
+        return redirect()->route('organisations.index');
     }
 
     /**
@@ -47,6 +52,7 @@ class OrganisatonController extends Controller
     public function show(Organisaton $organisaton)
     {
         //
+        return view('pages.manage.organisations.show',$organisation);
     }
 
     /**
@@ -58,6 +64,7 @@ class OrganisatonController extends Controller
     public function edit(Organisaton $organisaton)
     {
         //
+        return view('pages.manage.organisations.edit',$organisation);
     }
 
     /**
@@ -70,6 +77,7 @@ class OrganisatonController extends Controller
     public function update(Request $request, Organisaton $organisaton)
     {
         //
+        return redirect()->route('organisations.show',$organisation);
     }
 
     /**
@@ -81,5 +89,6 @@ class OrganisatonController extends Controller
     public function destroy(Organisaton $organisaton)
     {
         //
+        return redirect()->route('organisations.index');
     }
 }

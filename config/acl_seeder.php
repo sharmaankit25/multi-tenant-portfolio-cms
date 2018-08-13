@@ -56,7 +56,7 @@ return [
     ],
     'permissions_map' => [
         'c' => 'create',
-        'r' => 'read',
+        'r' => 'view',
         'u' => 'update',
         'd' => 'delete'
     ]
