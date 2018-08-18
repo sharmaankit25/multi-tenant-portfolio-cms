@@ -14,7 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.events.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.events.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('pages.manage.events.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('pages.manage.events.edit');
     }
 
     /**

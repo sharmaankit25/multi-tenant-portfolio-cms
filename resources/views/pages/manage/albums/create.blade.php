@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
-@section('page-header','Edit Organisation')
+@section('page-header','Create a new album')
 @section('page-description','')
 
 @section('content')
-	<h4>Edit Organisation Details</h4>
-	<form action="{{route('organisations.update')}}" method="post">
+	<h4>New album</h4>
+	<form action="{{route('albums.store')}}" method="post">
 		{{ csrf_field() }}
-		{{ method_field('PUT') }}
 		<button class="btn btn-default">Submit</button>
 	</form>
 	

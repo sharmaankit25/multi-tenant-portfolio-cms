@@ -14,7 +14,7 @@ class AchieverController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.achievers.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class AchieverController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.achievers.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class AchieverController extends Controller
      */
     public function show(Achiever $achiever)
     {
-        //
+        return view('pages.manage.achievers.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class AchieverController extends Controller
      */
     public function edit(Achiever $achiever)
     {
-        //
+        return view('pages.manage.achievers.edit');
     }
 
     /**
