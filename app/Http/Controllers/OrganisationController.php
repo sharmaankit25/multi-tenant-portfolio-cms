@@ -27,7 +27,6 @@ class OrganisationController extends Controller
      */
     public function create()
     {
-        //
         return view('pages.manage.organisations.create');
     }
 
@@ -39,7 +38,7 @@ class OrganisationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Organisation::create($request->all());
         return redirect()->route('organisations.index');
     }
 
@@ -52,7 +51,7 @@ class OrganisationController extends Controller
     public function show(Organisaton $organisaton)
     {
         //
-        return view('pages.manage.organisations.show',$organisation);
+        return view('pages.manage.organisations.show',compact('organisation'));
     }
 
     /**
@@ -64,7 +63,7 @@ class OrganisationController extends Controller
     public function edit(Organisaton $organisaton)
     {
         //
-        return view('pages.manage.organisations.edit',$organisation);
+        return view('pages.manage.organisations.edit',compact('organisation'));
     }
 
     /**
@@ -76,8 +75,8 @@ class OrganisationController extends Controller
      */
     public function update(Request $request, Organisaton $organisaton)
     {
-        //
-        return redirect()->route('organisations.show',$organisation);
+        $organisation->update($request->all());
+        return redirect()->route('organisations.show',['organisation'=>$organisation]);
     }
 
     /**

@@ -27,6 +27,8 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Admin Panel/Dashboard manage Routes
  */
 Route::group(['middleware' => 'auth','prefix'=>'manage'], function () {
+    Route::get('/','ManageController@index');
+    Route::get('/dashboard','ManageController@dashboard')->name('manage.dashboard');
     Route::resources([
         'achievers' => 'AchieverController',
         'admissions' => 'AdmissionController',
@@ -36,7 +38,7 @@ Route::group(['middleware' => 'auth','prefix'=>'manage'], function () {
         'documents' => 'DocumentController',
         'events'    =>  'EventController',
         'feedbacks' =>  'FeedbackController',
-        'feedback_responses'    =>  'FeedbackResponses',
+        'feedback_responses'    =>  'FeedbackResponseController',
         'jobs'  =>  'JobController',
         'notices'   => 'NoticeController',
         'organisations' => 'OrganisationController',
@@ -49,6 +51,6 @@ Route::group(['middleware' => 'auth','prefix'=>'manage'], function () {
         'staffs'    =>  'StaffController',
         'staff_types'   =>  'StaffTypeController',
         'standards' =>  'StandardController',
-        'users'     => 'UserController'
+        // 'users'     => 'UserController'
     ]);
 });

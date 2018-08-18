@@ -14,7 +14,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.staffs.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.staffs.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Staff::create($request->all());
+        return redirect()->route('staffs.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class StaffController extends Controller
      */
     public function show(Staff $staff)
     {
-        //
+        return view('pages.manage.staffs.show',compact('staff'));
     }
 
     /**
@@ -57,7 +58,7 @@ class StaffController extends Controller
      */
     public function edit(Staff $staff)
     {
-        //
+        return view('pages.manage.staffs.edit',compact('staff'));
     }
 
     /**
@@ -69,7 +70,8 @@ class StaffController extends Controller
      */
     public function update(Request $request, Staff $staff)
     {
-        //
+        $staff->update($request->all());
+        return redirect()->route('staffs.show',['staff'=>$staff]);
     }
 
     /**
@@ -80,6 +82,6 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff)
     {
-        //
+        return redirect()->route('staffs.index');
     }
 }

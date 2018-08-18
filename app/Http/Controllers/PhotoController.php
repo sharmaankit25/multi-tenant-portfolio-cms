@@ -14,7 +14,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.photos.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.photos.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Photo::create($request->all());
+        return redirect()->route('photos.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return view('pages.manage.photos.index',compact('photo'));
     }
 
     /**
@@ -57,7 +58,7 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        //
+        return view('pages.manage.photos.edit',compact('photo'));
     }
 
     /**
@@ -69,7 +70,8 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-        //
+        $photo->update($request->all());
+        return redirect()->route('photos.show',['photo'=>$photo]);
     }
 
     /**
@@ -80,6 +82,6 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        return redirect()->route('photos.index');
     }
 }

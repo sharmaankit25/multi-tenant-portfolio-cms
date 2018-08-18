@@ -14,7 +14,7 @@ class ResultController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.results.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ResultController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.results.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class ResultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Result::create($request->all());
+        return redirect()->route('results.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class ResultController extends Controller
      */
     public function show(Result $result)
     {
-        //
+        return view('pages.manage.results.show',compact('result'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ResultController extends Controller
      */
     public function edit(Result $result)
     {
-        //
+        return view('pages.manage.results.edit',compact('result'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ResultController extends Controller
      */
     public function update(Request $request, Result $result)
     {
-        //
+        $result->update($request->all());
+        return redirect()->route('results.show',['result'=>$result]);
     }
 
     /**
@@ -80,6 +82,6 @@ class ResultController extends Controller
      */
     public function destroy(Result $result)
     {
-        //
+        return redirect()->route('results.index');
     }
 }

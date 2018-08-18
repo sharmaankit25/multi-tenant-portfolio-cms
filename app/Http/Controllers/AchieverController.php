@@ -35,7 +35,8 @@ class AchieverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Achiever::create($request->all());
+        return redirect()->route('achievers.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class AchieverController extends Controller
      */
     public function show(Achiever $achiever)
     {
-        return view('pages.manage.achievers.show');
+        return view('pages.manage.achievers.show',compact('achiever'));
     }
 
     /**
@@ -57,7 +58,7 @@ class AchieverController extends Controller
      */
     public function edit(Achiever $achiever)
     {
-        return view('pages.manage.achievers.edit');
+        return view('pages.manage.achievers.edit',compact('achiever'));
     }
 
     /**
@@ -69,7 +70,8 @@ class AchieverController extends Controller
      */
     public function update(Request $request, Achiever $achiever)
     {
-        //
+        $achiever->update($request->all());
+        return redirect()->route('achievers.show',['achiever'=>$achiever]);
     }
 
     /**
@@ -80,6 +82,6 @@ class AchieverController extends Controller
      */
     public function destroy(Achiever $achiever)
     {
-        //
+        return redirect()->route('achievers.index');
     }
 }

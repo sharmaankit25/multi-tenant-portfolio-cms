@@ -14,7 +14,7 @@ class ChallanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.challans.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ChallanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.challans.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class ChallanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Challan::create($request->all());
+        return redirect()->route('challans.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class ChallanController extends Controller
      */
     public function show(Challan $challan)
     {
-        //
+        return view('pages.manage.challans.show',compact('challan'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ChallanController extends Controller
      */
     public function edit(Challan $challan)
     {
-        //
+        return view('pages.manage.challans.edit',compact('challan'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ChallanController extends Controller
      */
     public function update(Request $request, Challan $challan)
     {
-        //
+        $challan->update($request->all());
+        return redirect()->route('challans.show',['challan'=>$challan]);
     }
 
     /**
@@ -80,6 +82,6 @@ class ChallanController extends Controller
      */
     public function destroy(Challan $challan)
     {
-        //
+        return redirect()->route('challans.index');
     }
 }

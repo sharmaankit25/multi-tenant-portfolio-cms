@@ -14,7 +14,7 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.applications.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.applications.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Applications::create($request->all());
+        return redirect()->route('applications.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class ApplicationController extends Controller
      */
     public function show(Application $application)
     {
-        //
+        return view('pages.manage.applications.show',compact('application'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ApplicationController extends Controller
      */
     public function edit(Application $application)
     {
-        //
+        return view('pages.manage.applications.edit',compact('application'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, Application $application)
     {
-        //
+        $application->update($request->all());
+        return redirect()->route('applications.show',['application'=>$application]);
     }
 
     /**
@@ -80,6 +82,6 @@ class ApplicationController extends Controller
      */
     public function destroy(Application $application)
     {
-        //
+        return redirect()->route('applications.index');
     }
 }

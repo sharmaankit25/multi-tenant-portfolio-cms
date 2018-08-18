@@ -14,7 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.jobs.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.jobs.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Job::create($request->all());
+        return redirect()->route('jobs.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        //
+        return view('pages.manage.jobs.show',compact('job'));
     }
 
     /**
@@ -57,7 +58,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view('pages.manage.jobs.edit',compact('job'));
     }
 
     /**
@@ -69,7 +70,8 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        $job->update($request->all());
+        return redirect()->route('jobs.show',['job'=>$job]);
     }
 
     /**
@@ -80,6 +82,6 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        return redirect()->route('jobs.index');
     }
 }

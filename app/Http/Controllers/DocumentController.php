@@ -14,7 +14,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.documents.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.documents.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Document::create($request->all());
+        return redirect()->route('documents.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class DocumentController extends Controller
      */
     public function show(Document $document)
     {
-        //
+        return view('pages.manage.documents.show',compact('document'));
     }
 
     /**
@@ -57,7 +58,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        return view('pages.manage.documents.edit',compact('document'));
     }
 
     /**
@@ -69,7 +70,8 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        //
+        $document->update($request->all());
+        return redirect()->route('documents.index');
     }
 
     /**

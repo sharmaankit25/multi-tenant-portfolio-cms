@@ -14,7 +14,7 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.admissions.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class AdmissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.admissions.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class AdmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Admission::create($request->all());
+        return redirect()->route('admissions.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class AdmissionController extends Controller
      */
     public function show(Admission $admission)
     {
-        //
+        return view('pages.manage.admissions.show',compact('admission'));
     }
 
     /**
@@ -57,7 +58,7 @@ class AdmissionController extends Controller
      */
     public function edit(Admission $admission)
     {
-        //
+        return view('pages.manage.admissions.edit',compact('admission'));
     }
 
     /**
@@ -69,7 +70,8 @@ class AdmissionController extends Controller
      */
     public function update(Request $request, Admission $admission)
     {
-        //
+        $admission->update($request->all());
+        return redirect()->route('admissions.show',['admission'=>$admission]);
     }
 
     /**
@@ -80,6 +82,6 @@ class AdmissionController extends Controller
      */
     public function destroy(Admission $admission)
     {
-        //
+        return redirect()->route('admissions.index');
     }
 }

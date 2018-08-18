@@ -14,7 +14,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.notices.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.notices.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Notices::create($request->all());
+        return redirect()->route('notices.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class NoticeController extends Controller
      */
     public function show(Notice $notice)
     {
-        //
+        return view('pages.manage.notices.show',compact('notice'));
     }
 
     /**
@@ -57,7 +58,7 @@ class NoticeController extends Controller
      */
     public function edit(Notice $notice)
     {
-        //
+        return view('pages.manage.notices.edit',compact('notice'));
     }
 
     /**
@@ -69,7 +70,8 @@ class NoticeController extends Controller
      */
     public function update(Request $request, Notice $notice)
     {
-        //
+        $notice->update($request->all());
+        return redirect()->route('notices.show',['notice'=>$notice]);
     }
 
     /**
@@ -80,6 +82,6 @@ class NoticeController extends Controller
      */
     public function destroy(Notice $notice)
     {
-        //
+        return redirect()->route('notices.index');
     }
 }

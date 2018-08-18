@@ -14,7 +14,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.sliders.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.sliders.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Slider::create($request->all());
+        return redirect()->route('sliders.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class SliderController extends Controller
      */
     public function show(Slider $slider)
     {
-        //
+        return view('pages.manage.sliders.show',compact('slider'));
     }
 
     /**
@@ -57,7 +58,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        return view('pages.manage.sliders.edit',compact('slider'));
     }
 
     /**
@@ -69,7 +70,8 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        //
+        $slider->update($request->all());
+        return redirect()->route('sliders.show',['slider'=>$slider]);
     }
 
     /**
@@ -80,6 +82,6 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        return redirect()->route('sliders.index');
     }
 }

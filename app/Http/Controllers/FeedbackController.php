@@ -14,7 +14,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.feedbacks.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.feedbacks.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Feedback::create($request->all());
+        return redirect()->route('feedbacks.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class FeedbackController extends Controller
      */
     public function show(Feedback $feedback)
     {
-        //
+        return view('pages.manage.feedbacks.show',compact('feedback'));
     }
 
     /**
@@ -57,7 +58,7 @@ class FeedbackController extends Controller
      */
     public function edit(Feedback $feedback)
     {
-        //
+        return view('pages.manage.feedbacks.edit',compact('feedback'));
     }
 
     /**
@@ -69,7 +70,8 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, Feedback $feedback)
     {
-        //
+        $feedback->update($request->all());
+        return redirect()->route('feedbacks.show',['feedback'=>$feedback]);
     }
 
     /**
@@ -80,6 +82,6 @@ class FeedbackController extends Controller
      */
     public function destroy(Feedback $feedback)
     {
-        //
+        return redirect()->route('feedbacks.index');
     }
 }

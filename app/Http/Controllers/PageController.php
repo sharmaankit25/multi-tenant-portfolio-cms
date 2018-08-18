@@ -14,7 +14,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.pages.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.pages.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Page::create($request->all());
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('pages.manage.pages.show',compact('page'));
     }
 
     /**
@@ -57,7 +58,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        return view('pages.manage.pages.edit',compact('page'));
     }
 
     /**
@@ -69,7 +70,8 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+        $page->update($request->all());
+        return redirect()->route('pages.show',['page'=>$page]);
     }
 
     /**
@@ -80,6 +82,6 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        return redirect()->route('pages.index');
     }
 }

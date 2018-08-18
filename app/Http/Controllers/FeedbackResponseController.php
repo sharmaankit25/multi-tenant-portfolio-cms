@@ -14,7 +14,7 @@ class FeedbackResponseController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.feedback_responses.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class FeedbackResponseController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.feedback_responses.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class FeedbackResponseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +46,7 @@ class FeedbackResponseController extends Controller
      */
     public function show(FeedbackResponse $feedbackResponse)
     {
-        //
+        return view('pages.manage.feedback_responses.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class FeedbackResponseController extends Controller
      */
     public function edit(FeedbackResponse $feedbackResponse)
     {
-        //
+        return view('pages.manage.feedback_responses.edit');
     }
 
     /**

@@ -14,7 +14,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.manage.albums.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.manage.albums.create');
     }
 
     /**
@@ -35,7 +35,8 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Album::create($request->all());
+        return redirect()->route('albums.index');
     }
 
     /**
@@ -46,7 +47,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view('pages.manage.albums.show',compact('album'));
     }
 
     /**
@@ -57,7 +58,7 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        return view('pages.manage.albums.edit',compact('album'));
     }
 
     /**
@@ -69,7 +70,8 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        //
+        $album->update($request->all());
+        return redirect()->route('albums.show',['album'=>$album]);
     }
 
     /**
@@ -80,6 +82,6 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        return redirect()->route('albums.index');
     }
 }
