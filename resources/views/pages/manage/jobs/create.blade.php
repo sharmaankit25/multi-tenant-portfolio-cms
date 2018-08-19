@@ -45,6 +45,12 @@
 			'placeholder'=>'Total Salary per year'
 		])
 
+		@include('form.text',[
+			'name'=>'published_at',
+			'type'=>'date',
+			'placeholder'=>'Total Salary per year'
+		])
+
 		<button class="btn btn-default">Submit</button>
 	</form>
 	

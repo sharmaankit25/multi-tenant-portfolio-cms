@@ -14,6 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
+        $this->authorize(Job::class);
         $jobs = Job::get();
         return view('pages.manage.jobs.index',compact('jobs'));
     }
@@ -25,6 +26,7 @@ class JobController extends Controller
      */
     public function create()
     {
+        $this->authorize(Job::class);
         return view('pages.manage.jobs.create');
     }
 
@@ -36,6 +38,7 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize(Job::class);
         Job::create($request->all());
         return redirect()->route('jobs.index');
     }
@@ -48,6 +51,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
+        $this->authorize($job);
         return view('pages.manage.jobs.show',compact('job'));
     }
 
@@ -59,6 +63,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
+        $this->authorize($job);
         return view('pages.manage.jobs.edit',compact('job'));
     }
 
@@ -71,6 +76,7 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
+        $this->authorize($job);
         $job->update($request->all());
         return redirect()->route('jobs.show',['job'=>$job]);
     }
@@ -83,6 +89,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
+        $this->authorize($job);
         return redirect()->route('jobs.index');
     }
 }

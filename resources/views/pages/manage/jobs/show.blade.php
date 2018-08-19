@@ -4,7 +4,9 @@
 @section('page-description','')
 
 @section('content')
+	@can('create',App\Job::class)
 	<a href="{{route('jobs.create')}}" class="btn btn-success">Create New</a>
+	@endcan
 	<h4>Details of job</h4>
 		<div class="box">
 	<div class="box-header">
@@ -18,7 +20,7 @@
        		</div>
        		<div class="row">
        			<div class="col-sm-3">Title</div>
-       			<div class="col-sm-9">{{$job->Title }}</div>
+       			<div class="col-sm-9">{{$job->title }}</div>
        		</div>
        		<div class="row">
        			<div class="col-sm-3">Description</div>

@@ -10,6 +10,21 @@ class JobPolicy
 {
     use HandlesAuthorization;
 
+        /**
+     * Determine whether the user can view the job.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Job  $job
+     * @return mixed
+     */
+    public function index(User $user)
+    {
+        if($user->hasPermission('jobs.view')){
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Determine whether the user can view the job.
      *
@@ -19,7 +34,10 @@ class JobPolicy
      */
     public function view(User $user, Job $job)
     {
-        //
+        if($user->hasPermission('jobs.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +48,10 @@ class JobPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('jobs.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +63,10 @@ class JobPolicy
      */
     public function update(User $user, Job $job)
     {
-        //
+        if($user->hasPermission('jobs.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +78,9 @@ class JobPolicy
      */
     public function delete(User $user, Job $job)
     {
-        //
+        if($user->hasPermission('jobs.delete')){
+            return true;
+        }
+        return false;
     }
 }

@@ -4,7 +4,9 @@
 @section('page-description','')
 
 @section('content')
+  @can('create',App\Job::class)
 	<a href="{{route('jobs.create')}}" class="btn btn-success">Create New</a>
+  @endcan
 	<h4>List of jobs</h4>
 	  <div class="box">
       <div class="box-header">

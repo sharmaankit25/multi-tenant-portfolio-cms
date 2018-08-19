@@ -20,7 +20,7 @@ class CreateNoticesTable extends Migration
             $table->enum('type',['notice','news'])->default('notice');
             $table->integer("organisation_id");
             $table->date('published_at');
-            $table->date('deleted_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

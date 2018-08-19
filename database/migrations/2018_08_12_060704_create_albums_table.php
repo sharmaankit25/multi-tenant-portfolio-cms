@@ -18,7 +18,7 @@ class CreateAlbumsTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->integer('organisation_id');
-            $table->date('deleted_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

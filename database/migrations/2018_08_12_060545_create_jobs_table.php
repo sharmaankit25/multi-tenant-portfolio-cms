@@ -24,8 +24,8 @@ class CreateJobsTable extends Migration
             $table->string('salary')->nullable();
             $table->string('code');
             $table->integer('organisation_id');
-            $table->date('published_at');
-            $table->date('deleted_at');
+            $table->date('published_at')->useCurrent()->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

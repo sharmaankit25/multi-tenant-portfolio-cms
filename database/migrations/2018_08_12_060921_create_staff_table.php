@@ -18,7 +18,7 @@ class CreateStaffTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('organisation_id');
-            $table->date('deleted_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

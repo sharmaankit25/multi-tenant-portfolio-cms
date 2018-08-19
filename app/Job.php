@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\OrganisationTrait;
+use App\Traits\UniqueCodeTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Job extends Model
 {
-    use OrganisationTrait,SoftDeletes;
+    use OrganisationTrait,UniqueCodeTrait,SoftDeletes;
 
     protected $fillable = [
         'title',

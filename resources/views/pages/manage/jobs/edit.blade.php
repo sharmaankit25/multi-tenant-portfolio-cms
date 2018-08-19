@@ -17,7 +17,7 @@
 		@include('form.text',[
 			'name'=>'post',
 			'placeholder'=>'Position of Job',
-			'value'=>$job->position
+			'value'=>$job->post
 		])
 
 		@include('form.text',[
