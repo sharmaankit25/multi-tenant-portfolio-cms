@@ -3,7 +3,7 @@
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('manage.dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Jobs</span></a></li>
+        <li><a href="{{ route('jobs.index') }}"><i class="fa fa-link"></i> <span>Jobs</span></a></li>
         
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Events</span>

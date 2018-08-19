@@ -46,7 +46,7 @@ class LoginController extends Controller
     protected function credentials(\Illuminate\Http\Request $request)
     {
        $credentials = $request->only($this->username(), 'password');
-       return array_add($credentials, 'active', '1');
+       return array_add($credentials, 'active', 1);
     }
 
 }

@@ -14,7 +14,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.jobs.index');
+        $jobs = Job::get();
+        return view('pages.manage.jobs.index',compact('jobs'));
     }
 
     /**
