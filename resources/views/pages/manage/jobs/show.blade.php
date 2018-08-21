@@ -8,7 +8,7 @@
 	<a href="{{route('jobs.create')}}" class="btn btn-success">Create New</a>
 	@endcan
 	<h4>Details of job</h4>
-		<div class="box">
+<div class="box">
 	<div class="box-header">
         <h3 class="box-title">Details Of job</h3>
       </div>

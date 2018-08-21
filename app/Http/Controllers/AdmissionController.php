@@ -14,7 +14,8 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.admissions.index');
+        $admissions = Admission::get();
+        return view('pages.manage.admissions.index',compact('admissions'));
     }
 
     /**
@@ -24,6 +25,7 @@ class AdmissionController extends Controller
      */
     public function create()
     {
+        $this->authorize(Admission::class);
         return view('pages.manage.admissions.create');
     }
 
@@ -35,6 +37,7 @@ class AdmissionController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize(Admission::class);
         Admission::create($request->all());
         return redirect()->route('admissions.index');
     }
@@ -47,6 +50,7 @@ class AdmissionController extends Controller
      */
     public function show(Admission $admission)
     {
+        $this->authorize($admission);
         return view('pages.manage.admissions.show',compact('admission'));
     }
 
@@ -58,6 +62,7 @@ class AdmissionController extends Controller
      */
     public function edit(Admission $admission)
     {
+        $this->authorize($admission);
         return view('pages.manage.admissions.edit',compact('admission'));
     }
 

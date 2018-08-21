@@ -4,7 +4,9 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('manage.dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li><a href="{{ route('jobs.index') }}"><i class="fa fa-link"></i> <span>Jobs</span></a></li>
-        
+        <li><a href="{{ route('organisations.index') }}"><i class="fa fa-link"></i> <span>organisations</span></a></li>
+        <li><a href="{{ route('admissions.index') }}"><i class="fa fa-link"></i> <span>Admissions</span></a></li>
+
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Events</span>
             <span class="pull-right-container">

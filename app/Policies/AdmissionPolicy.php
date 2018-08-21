@@ -19,7 +19,10 @@ class AdmissionPolicy
      */
     public function view(User $user, Admission $admission)
     {
-        //
+        if($user->hasPermission('admissions.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class AdmissionPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('admissions.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +48,10 @@ class AdmissionPolicy
      */
     public function update(User $user, Admission $admission)
     {
-        //
+        if($user->hasPermission('admissions.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +63,9 @@ class AdmissionPolicy
      */
     public function delete(User $user, Admission $admission)
     {
-        //
+        if($user->hasPermission('admissions.update')){
+            return true;
+        }
+        return false;
     }
 }

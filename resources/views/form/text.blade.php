@@ -9,4 +9,6 @@
        id="@if(isset($id)){{ $id }}@endif"
        onfocus="@if(isset($onfocus)){{ $onfocus }}@endif"
        @if(isset($maxlength)) maxlength='{{$maxlength}}' @endif
+       @if(isset($min))min="{{ $min }}"@endif
+       @if(isset($max))max="{{ $max }}"@endif
        >

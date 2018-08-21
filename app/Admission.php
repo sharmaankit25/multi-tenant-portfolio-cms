@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\UniqueCodeTrait;
 use App\Traits\OrganisationTrait;
 
 class Admission extends Model
 {
-    use OrganisationTrait;
+    use UniqueCodeTrait,OrganisationTrait;
 
     protected $fillable = [
         'name',
