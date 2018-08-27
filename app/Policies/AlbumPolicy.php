@@ -19,7 +19,7 @@ class AlbumPolicy
      */
     public function view(User $user, Album $album)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class AlbumPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -42,7 +42,7 @@ class AlbumPolicy
      */
     public function update(User $user, Album $album)
     {
-        //
+        return true;
     }
 
     /**

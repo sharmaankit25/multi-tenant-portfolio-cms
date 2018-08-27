@@ -14,7 +14,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.albums.index');
+        $albums = Album::all();
+        return view('pages.manage.albums.index',compact('albums'));
     }
 
     /**
