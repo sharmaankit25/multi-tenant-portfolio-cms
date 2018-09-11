@@ -58,10 +58,11 @@ class ACLSeeder extends Seeder
                 'name' => ucwords(str_replace('_', ' ', $key)),
                 'email' => $key.'@app.com',
                 'password' => bcrypt('password'),
-                'active'=>1
+                'active'=>1,
+                'organisation_id'=>1
             ]);
 
-            $user->roles($role);
+            $user->roles()->sync($role);
         }
 
         // Creating user with permissions
@@ -79,6 +80,7 @@ class ACLSeeder extends Seeder
                         'remember_token' => str_random(10),
                         'active'=>1
                     ]);
+                    
                     $permissions = [];
 
                     foreach (explode(',', $value) as $p => $perm) {
@@ -86,9 +88,9 @@ class ACLSeeder extends Seeder
                         $permissionValue = $mapPermission->get($perm);
 
                         $permissions[] = \App\Permission::firstOrCreate([
-                            'name' => $module . '.' . $permissionValue ,
-                            'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
-                            'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
+                            'name' => $module . '.' . $permissionValue,
+                            'display_name' => ucfirst($module) . ' ' . ucfirst($permissionValue),
+                            'description' => ucfirst($module) . ' ' . ucfirst($permissionValue),
                         ])->id;
 
                         $this->command->info('Creating Permission to '.$permissionValue.' for '. $module);
