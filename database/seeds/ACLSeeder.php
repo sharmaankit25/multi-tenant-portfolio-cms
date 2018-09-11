@@ -13,7 +13,7 @@ class ACLSeeder extends Seeder
     public function run()
     {
         $this->command->info('Truncating User, Role and Permission tables');
-        $this->truncateACLTables();
+        // $this->truncateACLTables();
 
         $config = config('acl_seeder.role_structure');
         $userPermission = config('acl_seeder.permission_structure');
@@ -117,13 +117,11 @@ class ACLSeeder extends Seeder
     public function truncateACLTables()
     {
         Schema::disableForeignKeyConstraints();
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('permission_role')->truncate();
         DB::table('role_user')->truncate();
         \App\User::truncate();
         \App\Role::truncate();
         \App\Permission::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::enableForeignKeyConstraints();
     }
 }
