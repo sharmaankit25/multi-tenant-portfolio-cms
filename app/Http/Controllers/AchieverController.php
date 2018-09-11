@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Achiever;
+use App\Event;
 use Illuminate\Http\Request;
 
 class AchieverController extends Controller
@@ -24,7 +25,8 @@ class AchieverController extends Controller
      */
     public function create()
     {
-        return view('pages.manage.achievers.create');
+        $events = Event::get();
+        return view('pages.manage.achievers.create',compact('events'));
     }
 
     /**

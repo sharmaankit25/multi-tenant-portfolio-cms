@@ -16,14 +16,14 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.main.home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/** 
+/**
  * Admin Panel/Dashboard manage Routes
  */
 Route::group(['middleware' => 'auth','prefix'=>'manage'], function () {

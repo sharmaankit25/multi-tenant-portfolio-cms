@@ -35,7 +35,10 @@ class JobPolicy
     public function view(User $user, Job $job)
     {
         if($user->hasPermission('jobs.view')){
-            return true;
+            if($user->organisation_id === $job->organisation_id){
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -64,7 +67,10 @@ class JobPolicy
     public function update(User $user, Job $job)
     {
         if($user->hasPermission('jobs.update')){
-            return true;
+            if($user->organisation_id === $job->organisation_id){
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -79,7 +85,10 @@ class JobPolicy
     public function delete(User $user, Job $job)
     {
         if($user->hasPermission('jobs.delete')){
-            return true;
+            if($user->organisation_id === $job->organisation_id){
+                return true;
+            }
+            return false;
         }
         return false;
     }
