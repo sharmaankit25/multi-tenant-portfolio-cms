@@ -117,11 +117,13 @@ class ACLSeeder extends Seeder
     public function truncateACLTables()
     {
         Schema::disableForeignKeyConstraints();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('permission_role')->truncate();
         DB::table('role_user')->truncate();
         \App\User::truncate();
         \App\Role::truncate();
         \App\Permission::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Schema::enableForeignKeyConstraints();
     }
 }
