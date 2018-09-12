@@ -17,10 +17,10 @@
 	<meta name="author" content="C-Biz" />
 
 	<!--  Favicons / Title Bar Icon  -->
-	<link rel="shortcut icon" href="{{ asset('assets/images/favicon/icon.png')}}') }}" />
-	<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/favicon/icon.png')}}')}}">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/images/favicon/icon.png')}}')}}" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/images/favicon/icon.png')}}')}}" />
+	<link rel="shortcut icon" href="{{ asset('assets/images/favicon/icon.png')}}" />
+	<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/images/favicon/icon.png')}}">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/images/favicon/icon.png')}}" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/images/favicon/icon.png')}}" />
 
 	<!-- Bootstrap CSS  -->
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}" type="text/css" />
@@ -47,8 +47,8 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}" type="text/css" />
 
 
-	<!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js')}}"></script><![endif]-->
-	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js')}}"></script><![endif]-->
+	<!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 </head>
 
@@ -95,7 +95,7 @@
 	<script src="{{ asset('assets/js/jquery.lineProgressbar.js')}}"></script>
 	<!-- Slick Slider -->
 	<script src="{{ asset('assets/js/slick.min.js')}}"></script>
-	<!-- particles.js')}} -->
+	<!-- particles.js -->
 	<script src="{{ asset('assets/js/particles.min.js')}}"></script>
 	<script src="{{ asset('assets/js/particles-config.js')}}"></script>
 	<!-- Google Map -->

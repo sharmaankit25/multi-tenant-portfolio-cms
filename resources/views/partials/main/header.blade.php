@@ -12,7 +12,7 @@
 						<!-- End Toggle Nav Link For Mobiles -->
 						<div class="logo">
 							<a class="navbar-brand" href="index.html">
-								<img alt="Logo" src="{{ asset('assets/images/logo.png')}}')}}">
+								<img alt="Logo" src="{{ asset('assets/images/logo.png')}}">
 							</a>
 						</div> <!-- /.logo -->
 					</div>
