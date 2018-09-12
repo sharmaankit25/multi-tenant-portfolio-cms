@@ -5,6 +5,7 @@ namespace App\Scopes;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class OrganisationScope implements Scope
 {
@@ -17,6 +18,7 @@ class OrganisationScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('organisation_id', 1);
+        $org_id = config('settings.organisation_key');
+        $builder->where('organisation_id',$org_id);
     }
 }
