@@ -19,7 +19,10 @@ class FeedbackPolicy
      */
     public function view(User $user, Feedback $feedback)
     {
-        //
+        if($user->hasPermission('feedbacks.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class FeedbackPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('feedbacks.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +48,10 @@ class FeedbackPolicy
      */
     public function update(User $user, Feedback $feedback)
     {
-        //
+        if($user->hasPermission('feedbacks.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +63,9 @@ class FeedbackPolicy
      */
     public function delete(User $user, Feedback $feedback)
     {
-        //
+        if($user->hasPermission('feedbacks.delete')){
+            return true;
+        }
+        return false;
     }
 }

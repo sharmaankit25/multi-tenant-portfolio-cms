@@ -19,7 +19,10 @@ class NoticePolicy
      */
     public function view(User $user, Notice $notice)
     {
-        //
+        if($user->hasPermission('notices.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class NoticePolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('notices.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +48,10 @@ class NoticePolicy
      */
     public function update(User $user, Notice $notice)
     {
-        //
+        if($user->hasPermission('notices.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +63,9 @@ class NoticePolicy
      */
     public function delete(User $user, Notice $notice)
     {
-        //
+        if($user->hasPermission('feedbacks.delete')){
+            return true;
+        }
+        return false;
     }
 }

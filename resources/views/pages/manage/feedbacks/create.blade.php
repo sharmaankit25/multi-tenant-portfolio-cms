@@ -8,13 +8,13 @@
 	<form action="{{route('feedbacks.store')}}" method="post">
 		{{ csrf_field() }}
 		@include('form.text',[
-			'name'=>'name',
-			'placeholder'=>'Name of Album'
+			'name'=>'question',
+			'placeholder'=>'Question'
 		])
 
 		@include('form.text',[
 			'name'=>'description',
-			'placeholder'=>'Album description'
+			'placeholder'=>'Description'
 		])
 		<button class="btn btn-default">Submit</button>
 	</form>

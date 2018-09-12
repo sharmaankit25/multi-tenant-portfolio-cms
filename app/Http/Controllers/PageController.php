@@ -38,7 +38,9 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $this->authorize(Page::class);
-        Page::create($request->all());
+        $inputs = $request->all();
+        $inputs['slug'] = str_slug($request->title);
+        Page::create($inputs);
         return redirect()->route('pages.index');
     }
 
@@ -76,7 +78,9 @@ class PageController extends Controller
     public function update(Request $request, Page $page)
     {
         $this->authorize($page);
-        $page->update($request->all());
+        $inputs = $request->all();
+        $inputs['slug'] = str_slug($request->title);
+        $page->update($inputs);
         return redirect()->route('pages.show',['page'=>$page]);
     }
 

@@ -23,7 +23,7 @@
 		])
 		@include('form.select',[
 			'name'=>'event_id',
-			'options'=>array_pluck($events,'id','name')
+			'options'=>array_pluck($events,'name','id')
 		])
 		@include('form.textarea',[
 			'name'=>'description',

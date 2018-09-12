@@ -20,5 +20,5 @@
        			<div class="col-sm-3">Age</div>
        			<div class="col-sm-9">{{$album->description }}</div>
     </div>
-</div>
+	</div>
 @endsection

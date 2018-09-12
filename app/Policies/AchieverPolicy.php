@@ -19,7 +19,10 @@ class AchieverPolicy
      */
     public function view(User $user, Achiever $achiever)
     {
-        //
+        if($user->hasPermission('achievers.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class AchieverPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('achievers.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +48,10 @@ class AchieverPolicy
      */
     public function update(User $user, Achiever $achiever)
     {
-        //
+        if($user->hasPermission('achievers.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +63,9 @@ class AchieverPolicy
      */
     public function delete(User $user, Achiever $achiever)
     {
-        //
+        if($user->hasPermission('achievers.delete')){
+            return true;
+        }
+        return false;
     }
 }

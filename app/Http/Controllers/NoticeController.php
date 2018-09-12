@@ -14,7 +14,8 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.notices.index');
+        $notices = Notice::get();
+        return view('pages.manage.notices.index',compact('notices'));
     }
 
     /**
@@ -35,7 +36,7 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        Notices::create($request->all());
+        Notice::create($request->all());
         return redirect()->route('notices.index');
     }
 

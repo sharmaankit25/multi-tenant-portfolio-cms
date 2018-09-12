@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('pages.main.home');
 });
 
+Route::get('v/{slug}','MainController@page')->name('main.page');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

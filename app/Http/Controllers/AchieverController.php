@@ -15,7 +15,8 @@ class AchieverController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.achievers.index');
+        $achievers = Achiever::get();
+        return view('pages.manage.achievers.index',compact('achievers'));
     }
 
     /**
@@ -60,7 +61,8 @@ class AchieverController extends Controller
      */
     public function edit(Achiever $achiever)
     {
-        return view('pages.manage.achievers.edit',compact('achiever'));
+        $events = Event::get();
+        return view('pages.manage.achievers.edit',compact('achiever','events'));
     }
 
     /**

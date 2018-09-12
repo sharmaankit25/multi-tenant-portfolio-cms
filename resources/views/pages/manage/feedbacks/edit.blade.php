@@ -5,13 +5,13 @@
 
 @section('content')
 	<h4>Edit Feedback Details</h4>
-	<form action="{{route('feedbacks.update')}}" method="post">
+	<form action="{{route('feedbacks.update',['feedback'=>$feedback])}}" method="post">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
 		@include('form.text',[
-			'name'=>'name',
+			'name'=>'question',
 			'placeholder'=>'Name of Album',
-			'value'=>$feedback->name
+			'value'=>$feedback->question
 		])
 
 		@include('form.text',[

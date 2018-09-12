@@ -5,19 +5,19 @@
 
 @section('content')
 	<h4>Edit page Details</h4>
-	<form action="{{route('pages.update')}}" method="post">
+	<form action="{{route('pages.update',['page'=>$page])}}" method="post">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
 		@include('form.text',[
-			'name'=>'name',
+			'name'=>'title',
 			'placeholder'=>'Name of Album',
-			'value'=>$organisation->name
+			'value'=>$page->title
 		])
 
 		@include('form.text',[
-			'name'=>'description',
-			'placeholder'=>'Album description',
-			'value'=>$organisation->description
+			'name'=>'content',
+			'placeholder'=>'Content',
+			'value'=>$page->content
 		])
 		<button class="btn btn-default">Submit</button>
 	</form>

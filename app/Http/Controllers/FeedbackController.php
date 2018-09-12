@@ -14,7 +14,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.feedbacks.index');
+        $feedbacks = Feedback::get();
+        return view('pages.manage.feedbacks.index',compact('feedbacks'));
     }
 
     /**

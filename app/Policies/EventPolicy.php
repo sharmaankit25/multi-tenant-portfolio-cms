@@ -19,7 +19,10 @@ class EventPolicy
      */
     public function view(User $user, Event $event)
     {
-        //
+        if($user->hasPermission('events.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class EventPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('events.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +48,10 @@ class EventPolicy
      */
     public function update(User $user, Event $event)
     {
-        //
+        if($user->hasPermission('events.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +63,9 @@ class EventPolicy
      */
     public function delete(User $user, Event $event)
     {
-        //
+        if($user->hasPermission('events.delete')){
+            return true;
+        }
+        return false;
     }
 }
