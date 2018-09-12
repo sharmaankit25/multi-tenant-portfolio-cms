@@ -14,7 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.pages.index');
+        $pages = Page::get();
+        return view('pages.manage.pages.index',compact('pages'));
     }
 
     /**
@@ -24,6 +25,7 @@ class PageController extends Controller
      */
     public function create()
     {
+        $this->authorize(Page::class);
         return view('pages.manage.pages.create');
     }
 
@@ -35,6 +37,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize(Page::class);
         Page::create($request->all());
         return redirect()->route('pages.index');
     }
@@ -47,6 +50,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
+        $this->authorize($page);
         return view('pages.manage.pages.show',compact('page'));
     }
 
@@ -58,6 +62,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
+        $this->authorize($page);
         return view('pages.manage.pages.edit',compact('page'));
     }
 
@@ -70,6 +75,7 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
+        $this->authorize($page);
         $page->update($request->all());
         return redirect()->route('pages.show',['page'=>$page]);
     }
@@ -82,6 +88,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
+        $this->authorize($page);
         return redirect()->route('pages.index');
     }
 }

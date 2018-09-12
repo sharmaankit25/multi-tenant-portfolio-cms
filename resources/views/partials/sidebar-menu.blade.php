@@ -6,6 +6,7 @@
         <li><a href="{{ route('jobs.index') }}"><i class="fa fa-link"></i> <span>Jobs</span></a></li>
         <li><a href="{{ route('organisations.index') }}"><i class="fa fa-link"></i> <span>organisations</span></a></li>
         <li><a href="{{ route('admissions.index') }}"><i class="fa fa-link"></i> <span>Admissions</span></a></li>
+        <li><a href="{{ route('pages.index') }}"><i class="fa fa-link"></i> <span>Pages</span></a></li>
 
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Events</span>

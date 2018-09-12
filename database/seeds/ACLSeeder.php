@@ -13,7 +13,7 @@ class ACLSeeder extends Seeder
     public function run()
     {
         $this->command->info('Truncating User, Role and Permission tables');
-        // $this->truncateACLTables();
+        $this->truncateACLTables();
 
         $config = config('acl_seeder.role_structure');
         $userPermission = config('acl_seeder.permission_structure');
