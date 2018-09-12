@@ -18,7 +18,7 @@ class OrganisationScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $org_id = config('settings.organisation_key');
-        $builder->where('organisation_id',$org_id);
+        $organisation = \App\Organisation::where('token',config('settings.organisation_key'))->first();
+        $builder->where('organisation_id',$organisation->id);
     }
 }

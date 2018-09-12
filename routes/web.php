@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('pages.main.home');
 });
 
+Route::get('/contact', 'MainController@contact')->name('main.contact');
+
 Route::get('v/{slug}','MainController@page')->name('main.page');
 
 Auth::routes();

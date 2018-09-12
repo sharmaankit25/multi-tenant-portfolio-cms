@@ -5,7 +5,7 @@
         <li class="active"><a href="{{ route('manage.dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li><a href="{{ route('jobs.index') }}"><i class="fa fa-link"></i> <span>Jobs</span></a></li>
         @can('index',App\Organisation::class)
-        <li><a href="{{ route('organisations.index') }}"><i class="fa fa-link"></i> <span>organisations</span></a></li>
+        <li><a href="{{ route('organisations.index') }}"><i class="fa fa-link"></i> <span>Organisations</span></a></li>
         @endcan
         <li><a href="{{ route('admissions.index') }}"><i class="fa fa-link"></i> <span>Admissions</span></a></li>
         <li><a href="{{ route('pages.index') }}"><i class="fa fa-link"></i> <span>Pages</span></a></li>
@@ -13,6 +13,7 @@
         <li><a href="{{ route('achievers.index') }}"><i class="fa fa-link"></i> <span>Achievers</span></a></li>
         <li><a href="{{ route('feedbacks.index') }}"><i class="fa fa-link"></i> <span>Feedbacks</span></a></li>
         <li><a href="{{ route('notices.index') }}"><i class="fa fa-link"></i> <span>Notice/News</span></a></li>
+        <li><a href="{{ route('sliders.index') }}"><i class="fa fa-link"></i> <span>Sliders</span></a></li>
 
         {{--  <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Events</span>

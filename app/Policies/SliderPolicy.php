@@ -19,7 +19,10 @@ class SliderPolicy
      */
     public function view(User $user, Slider $slider)
     {
-        //
+        if($user->hasPermission('sliders.view')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +33,10 @@ class SliderPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermission('sliders.create')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +48,10 @@ class SliderPolicy
      */
     public function update(User $user, Slider $slider)
     {
-        //
+        if($user->hasPermission('sliders.update')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +63,9 @@ class SliderPolicy
      */
     public function delete(User $user, Slider $slider)
     {
-        //
+        if($user->hasPermission('sliders.delete')){
+            return true;
+        }
+        return false;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
+use App\Photo;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -14,7 +15,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view('pages.manage.sliders.index');
+        $sliders = Slider::get();
+        return view('pages.manage.sliders.index',compact('sliders'));
     }
 
     /**
@@ -70,6 +72,12 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
+        $path = $request->file('photo')->store('sliders');
+        $photo = Photo::create([
+            'photo'=>$path,
+            'description'=>$request->description
+        ]);
+        $slider->photos()->attach($photo);
         $slider->update($request->all());
         return redirect()->route('sliders.show',['slider'=>$slider]);
     }
