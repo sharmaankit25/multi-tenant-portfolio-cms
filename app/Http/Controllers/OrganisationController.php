@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Organisation;
 use Illuminate\Http\Request;
+use Unique;
 
 class OrganisationController extends Controller
 {
@@ -14,7 +15,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-       // $this->authorize('view',Organisation::class);
+       $this->authorize(Organisation::class);
        $organisations = Organisation::all();
        return view('pages.manage.organisations.index',compact('organisations'));
 
@@ -27,6 +28,7 @@ class OrganisationController extends Controller
      */
     public function create()
     {
+        $this->authorize(Organisation::class);
         return view('pages.manage.organisations.create');
     }
 
@@ -38,7 +40,10 @@ class OrganisationController extends Controller
      */
     public function store(Request $request)
     {
-        Organisation::create($request->all());
+        $this->authorize(Organisation::class);
+        $inputs = $request->all();
+        $inputs['token'] = Unique::byModal('App\Organisation','token','alphanumeric',8,'ORG');
+        Organisation::create($inputs);
         return redirect()->route('organisations.index');
     }
 
@@ -48,9 +53,9 @@ class OrganisationController extends Controller
      * @param  \App\Organisaton  $organisaton
      * @return \Illuminate\Http\Response
      */
-    public function show(Organisaton $organisaton)
+    public function show(Organisation $organisation)
     {
-        //
+        $this->authorize($organisation);
         return view('pages.manage.organisations.show',compact('organisation'));
     }
 
@@ -60,9 +65,9 @@ class OrganisationController extends Controller
      * @param  \App\Organisaton  $organisaton
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organisaton $organisaton)
+    public function edit(Organisation $organisation)
     {
-        //
+        $this->authorize($organisation);
         return view('pages.manage.organisations.edit',compact('organisation'));
     }
 
@@ -73,9 +78,10 @@ class OrganisationController extends Controller
      * @param  \App\Organisaton  $organisaton
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organisaton $organisaton)
+    public function update(Request $request, Organisation $organisation)
     {
-        $organisation->update($request->all());
+        $this->authorize($organisation);
+        $organisation->update($request->except('token'));
         return redirect()->route('organisations.show',['organisation'=>$organisation]);
     }
 
@@ -85,9 +91,9 @@ class OrganisationController extends Controller
      * @param  \App\Organisaton  $organisaton
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organisaton $organisaton)
+    public function destroy(Organisation $organisation)
     {
-        //
+        $this->authorize($organisation);
         return redirect()->route('organisations.index');
     }
 }

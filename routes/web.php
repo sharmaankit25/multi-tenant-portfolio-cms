@@ -16,6 +16,7 @@
  */
 
 Route::get('/', function () {
+    dd(Unique::byModal('App\Organisation','token','alphanumeric',8,'ORG'));
     return view('pages.main.home');
 });
 

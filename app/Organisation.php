@@ -12,6 +12,7 @@ class Organisation extends Model
         'address',
         'phone',
         'email',
+        'token',
         'lat_long',
         'url',
         'social_networks',

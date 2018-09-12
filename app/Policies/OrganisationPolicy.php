@@ -6,7 +6,7 @@ use App\User;
 use App\Organisation;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class organisationPolicy
+class OrganisationPolicy
 {
     use HandlesAuthorization;
 
@@ -17,9 +17,28 @@ class organisationPolicy
      * @param  \App\Organisation  $organisation
      * @return mixed
      */
+    public function index(User $user)
+    {
+        if($user->hasRole('superadministrator')){
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * Determine whether the user can view the organisation.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Organisation  $organisation
+     * @return mixed
+     */
     public function view(User $user, Organisation $organisation)
     {
-        //
+        if($user->hasPermission('organisations.view')){
+            return $user->organisation_id === $organisation->id;
+        }
+        return false;
     }
 
     /**
@@ -30,7 +49,10 @@ class organisationPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasRole('superadministrator')){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -42,7 +64,10 @@ class organisationPolicy
      */
     public function update(User $user, Organisation $organisation)
     {
-        //
+        if($user->hasPermission('organisations.update')){
+            return $user->organisation_id === $organisation->id;
+        }
+        return false;
     }
 
     /**
@@ -54,6 +79,9 @@ class organisationPolicy
      */
     public function delete(User $user, Organisation $organisation)
     {
-        //
+        if($user->hasRole('superadministrator')){
+            return true;
+        }
+        return false;
     }
 }

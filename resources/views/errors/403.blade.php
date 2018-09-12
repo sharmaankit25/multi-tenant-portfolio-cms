@@ -453,7 +453,7 @@ body {
                 <div class="neck"></div>
               </div>
             </div>
-          </div><span class="numer">4</span>
+          </div><span class="numer">3</span>
         </div>
     </body>
 </html>

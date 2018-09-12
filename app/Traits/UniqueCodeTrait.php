@@ -21,7 +21,6 @@ trait UniqueCodeTrait {
         // static::addGlobalScope(new CreatedByUserScope);
 
         static::created(function($item){
-            // Index the item
             $item->code = Unique::generate();
         });
         static::saving(function ($model) {

@@ -4,7 +4,9 @@
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('manage.dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li><a href="{{ route('jobs.index') }}"><i class="fa fa-link"></i> <span>Jobs</span></a></li>
+        @can('index',App\Organisation::class)
         <li><a href="{{ route('organisations.index') }}"><i class="fa fa-link"></i> <span>organisations</span></a></li>
+        @endcan
         <li><a href="{{ route('admissions.index') }}"><i class="fa fa-link"></i> <span>Admissions</span></a></li>
         <li><a href="{{ route('pages.index') }}"><i class="fa fa-link"></i> <span>Pages</span></a></li>
         <li><a href="{{ route('events.index') }}"><i class="fa fa-link"></i> <span>Events</span></a></li>

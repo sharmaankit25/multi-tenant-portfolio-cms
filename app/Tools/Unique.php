@@ -23,7 +23,7 @@ class Unique
         if(gettype($model) === 'string'){
             $model = new $model;
         }
-        
+
         if($type == 'numeric'){
             return $this->numeric($length,$model,$column,$prefix,$postfix);
         }else{
@@ -31,7 +31,7 @@ class Unique
         }
     }
 
-    public function numeric($length=5,Model $model=null,$column='code',$prefix='',$postfix=''){
+    public function numeric($length=5,$model=null,$column='code',$prefix='',$postfix=''){
         // Generate a random Token
         $this->randomGenerate('numeric',$length,$prefix,$postfix);
         // Check If It Exists in model
@@ -45,7 +45,7 @@ class Unique
         return $this->token;
     }
 
-    public function alphaNumeric($length=5,Model $model=null,$column='code',$prefix='',$postfix=''){
+    public function alphaNumeric($length=5,$model=null,$column='code',$prefix='',$postfix=''){
         // Generate a random Token
         $this->randomGenerate('alphanumeric',$length,$prefix,$postfix);
         // Check If It Exists in model

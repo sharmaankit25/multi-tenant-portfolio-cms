@@ -20,6 +20,7 @@ class CreateOrganisationsTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email');
+            $table->string('token')->unique();
             $table->string('lat_long');
             $table->string('url');
             $table->string('social_networks');
