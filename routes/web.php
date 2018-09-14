@@ -15,9 +15,7 @@
  * Main Website Routes
  */
 
-Route::get('/', function () {
-    return view('pages.main.home');
-});
+Route::get('/','MainController@index')->name('main.index');
 
 Route::get('/contact', 'MainController@contact')->name('main.contact');
 

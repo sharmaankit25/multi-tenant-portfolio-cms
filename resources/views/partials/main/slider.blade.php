@@ -4,18 +4,20 @@
 			<div id="main-slide" class="main-slider carousel slide" data-ride="carousel">
 				<!-- Carousel inner -->
 				<div class="carousel-inner">
-					<div class="item active">
-						<img class="img-responsive" src="{{ asset('assets/images/slider/1.jpg')}}')}}" alt="slider">
+					@if(!empty($items))
+					@foreach($items as $k => $item)
+					<div class="item {{ $k == 0 ? 'active' : '' }}">
+						<img class="img-responsive" src="{{ asset('storage/'.$item->photo)}}" alt="slider">
 						<div class="container">
 							<div class="slider-content">
 								<div class="container">
-									<h2 class="animated4">
+									<h2 class="animated{{ $k }}">
 										<span>We Make Creative <strong>Website</strong></span>
 									</h2>
-									<p class="animated6 slide-para">
+									<p class="animated{{ $k+1 }} slide-para">
 										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>
 									</p>
-									<p class="animated4">
+									<p class="animated{{ $k+2 }}">
 										<a href="#" class="slider-btn cbiz-btn">Watch Video</a>
 										<a href="#" class="slider-btn cbiz-btn cbiz-btn-border">Buy Now</a>
 									</p>
@@ -23,43 +25,8 @@
 							</div>
 						</div> <!-- /.container -->
 					</div> <!-- /.item -->
-					<div class="item">
-						<img class="img-responsive" src="{{ asset('assets/images/slider/2.jpg')}}" alt="slider">
-						<div class="container">
-							<div class="slider-content">
-								<div class="container">
-									<h2 class="animated2">
-										<span>We Make Beatiful <strong>Design</strong></span>
-									</h2>
-									<p class="animated3 slide-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-									<p class="animated4">
-										<a href="#" class="slider-btn cbiz-btn">Watch Video</a>
-										<a href="#" class="slider-btn cbiz-btn cbiz-btn-border">Buy Now</a>
-									</p>
-								</div>
-							</div>
-						</div> <!-- /.container -->
-					</div> <!-- /.item -->
-					<div class="item">
-						<img class="img-responsive" src="{{ asset('assets/images/slider/3.jpg')}}" alt="slider">
-						<div class="container">
-							<div class="slider-content">
-								<div class="container">
-									<h2 class="animated5">
-									 <span>Welcome to Our <strong>Nest</strong></span>
-									</h2>
-									<p class="animated7 slide-para">
-										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>
-									</p>
-									<p class="animated8">
-										<a href="#" class="slider-btn cbiz-btn">Watch Video</a>
-										<a href="#" class="slider-btn cbiz-btn cbiz-btn-border">Buy Now</a>
-									</p>
-								</div>
-							</div>
-						</div> <!-- /.container -->
-					</div> <!-- /.item -->
-
+					@endforeach
+					@endif
 				</div>
 				<!-- Carousel inner end-->
 

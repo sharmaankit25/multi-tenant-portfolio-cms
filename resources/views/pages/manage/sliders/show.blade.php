@@ -24,7 +24,7 @@
        		</div>
 			<div class="row">
        			<div class="col-sm-3">Photo</div>
-       			<div class="col-sm-9"><img src="{{ Storage::url($photo->photo) }}" alt=""></div>
+       			<div class="col-sm-9"><img src="{{ asset('storage/'.$photo->photo) }}" alt=""></div>
        		</div>
 			@endforeach
 		</div>

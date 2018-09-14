@@ -24,13 +24,13 @@ trait OrganisationTrait {
 
         static::created(function($item){
             // Index the item
-            $org_id = config('settings.organisation_key');
-            $item->organisation_id = $org_id ;
+            $organisation = \App\Organisation::where('token',config('settings.organisation_key'))->first();
+            $item->organisation_id = $organisation->id;
         });
 
         static::saving(function ($model) {
-            $org_id = config('settings.organisation_key');
-            $model->organisation_id = $org_id;
+            $organisation = \App\Organisation::where('token',config('settings.organisation_key'))->first();
+            $model->organisation_id = $organisation->id;
         });
     }
 }
