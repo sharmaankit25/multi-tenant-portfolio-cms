@@ -28,7 +28,7 @@
 								</ul>
 							</li>
 							<li><a href="about.html">About</a></li>
-							<li><a href="portfolio.html">Portfolio</a></li>
+							<li><a href="{{ route('main.admission') }}">Admission</a>/li>
 							<li>
 								<a href="blog.html">Blog</a>
 								<ul class="dropdown">
@@ -39,7 +39,7 @@
 									<li><a href="single-left-sidebar.html">Single Left Sidebar</a></li>
 								</ul>
 							</li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="{{ route('main.contact') }}">Contact</a></li>
 						</ul>
 						<!-- End Navigation List -->
 					</div>
@@ -58,12 +58,12 @@
 							<li><a href="blog.html">Blog</a></li>
 							<li><a href="contact.html">Contact</a></li>
 							<li><a href="team.html">Team</a></li>
-							<li><a href="portfolio.html">Portfolio</a></li>
+							<li><a href="{{ route('main.admission') }}">Admission</a></li>
 							<li><a href="404.html">404 / Error</a></li>
 						</ul>
 					</li>
 					<li><a href="about.html">About</a></li>
-					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="{{ route('main.admission') }}">Admission</a></li>
 					<li>
 						<a href="blog.html">Blog</a>
 						<ul class="dropdown">
