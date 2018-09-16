@@ -77,6 +77,10 @@ class SliderController extends Controller
             'photo'=>$path,
             'description'=>$request->description
         ]);
+        
+        // If photo is being uploaded then upload photo and remove previous photo from folder using Unlink
+        // ELSE if photo is empty then skip unilinking and uploading
+
         $slider->photos()->attach($photo);
         $slider->update($request->all());
         return redirect()->route('sliders.show',['slider'=>$slider]);

@@ -28,4 +28,54 @@ class MainController extends Controller
     {
         return view('pages.main.contact');
     }
+
+    public function admission()
+    {
+        return view('pages.main.admission');
+    }
+
+    public function challan()
+    {
+        return view('pages.main.challan');
+    }
+
+    public function careers()
+    {
+        return view('pages.main.careers');
+    }
+
+    public function gallery()
+    {
+        return view('pages.main.gallery');
+    }
+
+    public function events()
+    {
+        return view('pages.main.events');
+    }
+
+    public function feedback()
+    {
+        return view('pages.main.feedback');
+    }
+
+    public function notice()
+    {
+        return view('pages.main.notice-news');
+    }
+
+    public function news()
+    {
+        return view('pages.main.notice-news');
+    }
+
+    public function results()
+    {
+        return view('pages.main.results');
+    }
+
+    public function staff()
+    {
+        return view('pages.main.staff');
+    }
 }
