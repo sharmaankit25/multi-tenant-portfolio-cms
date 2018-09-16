@@ -1,6 +1,5 @@
 		<!-- Header Area START -->
 		<header class="clearfix header" data-spy="affix" data-offset-top="60">
-
 			<!-- Start  Logo & Menu  -->
 			<div class="navbar navbar-default navbar-top">
 				<div class="container">
@@ -11,7 +10,7 @@
 						</button>
 						<!-- End Toggle Nav Link For Mobiles -->
 						<div class="logo">
-							<a class="navbar-brand" href="index.html">
+							<a class="navbar-brand" href="{{ url('/') }}">
 								<img alt="Logo" src="{{ asset('assets/images/logo.png')}}">
 							</a>
 						</div> <!-- /.logo -->
@@ -19,18 +18,13 @@
 					<div class="navbar-collapse collapse">
 						<!-- Start Navigation List -->
 						<ul class="nav navbar-nav navbar-right">
-							<li><a class="active" href="index.html">Home</a></li>
+							<li><a class="active" href="{{ url('/') }}">Home</a></li>
 							<li>
 								<a href="#">Pages</a>
 								<ul class="dropdown">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="services.html">Services</a></li>
-									<li><a href="blog.html">Blog</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="team.html">Team</a></li>
-									<li><a href="portfolio.html">Portfolio</a></li>
-									<li><a href="404.html">404 / Error</a></li>
+								@foreach($pages as $page)
+									<li><a href="{{ route('main.page',['slug'=>$page->slug]) }}">{{ $page->title }}</a></li>
+								@endforeach
 								</ul>
 							</li>
 							<li><a href="about.html">About</a></li>
@@ -80,7 +74,7 @@
 							<li><a href="single-left-sidebar.html">Single Left Sidebar</a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="{{ route('main.contact') }}">Contact</a></li>
 				</ul> <!-- /.wpb-mobile-menu -->
 			</div> <!-- /.navbar -->
 			<!-- End Header Logo & Naviagtion -->
