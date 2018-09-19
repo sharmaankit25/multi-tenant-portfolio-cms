@@ -8,7 +8,7 @@
 	<form action="{{route('jobs.update',['job'=>$job])}}" method="post">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
-				@include('form.text',[
+		@include('form.text',[
 			'name'=>'title',
 			'placeholder'=>'Title of Job',
 			'value'=>$job->title

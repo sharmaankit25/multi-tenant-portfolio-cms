@@ -14,6 +14,7 @@
         <li><a href="{{ route('feedbacks.index') }}"><i class="fa fa-link"></i> <span>Feedbacks</span></a></li>
         <li><a href="{{ route('notices.index') }}"><i class="fa fa-link"></i> <span>Notice/News</span></a></li>
         <li><a href="{{ route('sliders.index') }}"><i class="fa fa-link"></i> <span>Sliders</span></a></li>
+        <li><a href="{{ route('albums.index') }}"><i class="fa fa-link"></i> <span>Albums</span></a></li>
 
         {{--  <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Events</span>

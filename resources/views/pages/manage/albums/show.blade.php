@@ -19,6 +19,13 @@
        		<div class="row">
        			<div class="col-sm-3">Age</div>
        			<div class="col-sm-9">{{$album->description }}</div>
-    </div>
+    		</div>
+
+			@foreach($album->photos as $photo)
+			<div class="row">
+       			<div class="col-sm-3">{{ $photo->description}}</div>
+       			<div class="col-sm-9"><img src="{{ asset('storage/'.$photo->photo) }}" alt=""></div>
+    		</div>
+			@endforeach
 	</div>
 @endsection

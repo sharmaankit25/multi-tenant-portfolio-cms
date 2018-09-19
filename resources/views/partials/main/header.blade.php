@@ -28,7 +28,7 @@
 								</ul>
 							</li>
 							<li><a href="about.html">About</a></li>
-							<li><a href="{{ route('main.admission') }}">Admission</a>/li>
+							<li><a href="{{ route('main.admission') }}">Admission</a></li>
 							<li>
 								<a href="blog.html">Blog</a>
 								<ul class="dropdown">

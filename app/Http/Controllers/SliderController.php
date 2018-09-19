@@ -26,7 +26,8 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('pages.manage.sliders.create');
+        $slider_options = $this->slider_options();
+        return view('pages.manage.sliders.create',compact('slider_options'));
     }
 
     /**
@@ -60,7 +61,8 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        return view('pages.manage.sliders.edit',compact('slider'));
+        $slider_options = $this->slider_options();
+        return view('pages.manage.sliders.edit',compact('slider','slider_options'));
     }
 
     /**
@@ -72,16 +74,19 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        $path = $request->file('photo')->store('sliders');
-        $photo = Photo::create([
-            'photo'=>$path,
-            'description'=>$request->description
-        ]);
-        
-        // If photo is being uploaded then upload photo and remove previous photo from folder using Unlink
-        // ELSE if photo is empty then skip unilinking and uploading
+        $photo_description = $request->description;
+        foreach($request->file('photo') as $k => $photo)
+        {
+            $path = $photo->store('sliders');
+            // If photo is being uploaded then upload photo and remove previous photo from folder using Unlink
+            // ELSE if photo is empty then skip unilinking and uploading
 
-        $slider->photos()->attach($photo);
+            $photo = Photo::create([
+                'photo'=>$path,
+                'description'=>$photo_description[$k]
+            ]);
+            $slider->photos()->attach($photo);
+        }
         $slider->update($request->all());
         return redirect()->route('sliders.show',['slider'=>$slider]);
     }
@@ -95,5 +100,22 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         return redirect()->route('sliders.index');
+    }
+
+    protected function slider_options()
+    {
+        $sliders = Slider::get();
+        
+        $options = [
+            'home-page'=>'Home Banner'
+        ];
+
+
+        foreach($sliders as $slider){
+            if(array_key_exists($slider->title,$options)){
+                unset($options[$slider->title]);
+            }
+        }
+        return $options;
     }
 }

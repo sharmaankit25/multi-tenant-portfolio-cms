@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Page;
 use App\Organisation;
 use App\Slider;
+use App\Event;
 
 class MainController extends Controller
 {
     public function index()
     {
-        $slider = Slider::where('title','Slider 1')->first();
+        $slider = Slider::where('title','home-page')->first();
         return view('pages.main.home',compact('slider'));
     }
 
@@ -51,7 +52,8 @@ class MainController extends Controller
 
     public function events()
     {
-        return view('pages.main.events');
+        $events = Event::get();
+        return view('pages.main.events',compact('events'));
     }
 
     public function feedback()

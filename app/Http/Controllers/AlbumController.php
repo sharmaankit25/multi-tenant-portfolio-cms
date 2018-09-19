@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use Illuminate\Http\Request;
+use App\Photo;
 
 class AlbumController extends Controller
 {
@@ -71,6 +72,13 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
+        $path = $request->file('photo')->store('albums');
+        $photo = Photo::create([
+            'photo'=>$path,
+            'description'=>$request->description
+        ]);
+
+        $album->photos()->attach($photo);
         $album->update($request->all());
         return redirect()->route('albums.show',['album'=>$album]);
     }
